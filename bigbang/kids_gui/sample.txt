@@ -1,0 +1,81 @@
+
+#include <NewPing.h>
+
+#include <Servo.h>
+
+#define trigL 4                                 // the pin values the senors and motors are connedted to.
+#define trigR 13
+
+#define echoL 2
+#define echoR 12
+
+#define servoR 7
+#define servoL 8
+
+
+// Directions
+int DIRECTION_1=Input1;
+int DIRECTION_2=Input2;
+int DIRECTION_3=Input3;
+int DIRECTION_4=Input4;
+
+// The Maximum distance the Ultra sonics will detect in cm. anything further will return 0
+int MAX_DISTANCE=Input5;
+
+
+NewPing UltraSonic[2]=                          // create the Ping objects
+{
+  NewPing(trigL,echoL,MAX_DISTANCE),            // UltraSonic[0] is left
+  NewPing(trigR,echoR,MAX_DISTANCE)             // UltraSonic [1] is the Right.
+};
+
+
+Servo S_Right;                                  // Create the Servo objects
+Servo S_Left; 
+
+void setup() 
+{
+
+  
+}
+
+void loop() 
+{
+   
+  double L_distance= UltraSonic[0].ping_cm();   // ping the ultrasoince and store the distance in cm in the Variable L_distance
+  double R_distance= UltraSonic[1].ping_cm();   // repeat for right sensor
+  
+  if (((L_distance < 5) && (L_distance > 0)) || ((R_distance < 5) && (R_distance > 0)))  //check to see if too close to something
+  {
+    S_Right.detach();                           // if too close stop the servos by detaching them 
+    S_Left.detach ();     
+    delay(250);                                 // wait 1/4 of a second 
+  }
+  else
+  {
+
+    S_Right.attach(servoR);                     // if not to close turn on the servos by attaching them
+    S_Left.attach (servoL);      
+    
+    // if L_distance is less than MAX_DISTANCE do something 
+    if (L_distance > 0)//[change_here]
+    {
+      S_Left.write(DIRECTION_1);
+    }
+    else                                        // else do something else
+    {
+     S_Left.write(DIRECTION_2);
+    }
+
+    // if R_distance is less than MAX_DISTANCE do something
+    if (R_distance > 0)//[change_here]
+    {
+      S_Right.write(DIRECTION_3); 
+    }
+    else                                        // else do something else
+    {
+      S_Right.write(DIRECTION_4);
+    }
+    delay(500);                                 // do this ^ for 1/2 a second 
+  }
+}

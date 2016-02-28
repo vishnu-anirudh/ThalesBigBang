@@ -1,0 +1,149 @@
+#include <NewPing.h>
+#include<Servo.h>
+
+#define trigR 4				// the pin values the senors and motors are connedted to.
+#define trigL 13
+
+#define echoR 2
+#define echoL 12
+
+#define servoR 8
+#define servoL 7
+
+int Crossed = 1; 					// if 0 the values are not crossed.
+int Excite = 0; 					// if 0 on close objects will excite.
+int MAX_DISTANCE= 20;				// The Maximum distance the Ultra sonics will detect in cm
+int MAX_SPEED= 100;					// Precentage of the maximum speed capable
+
+
+int variable1=Input1;
+int variable2=Input2;
+int variable3=Input3;
+
+
+
+NewPing UltraSonic[2]=               // create the Ping objects
+{
+	NewPing(trigL,echoL,MAX_DISTANCE), // UltraSonic[0] is left
+	NewPing(trigR,echoR,MAX_DISTANCE)	// UltraSonic [1] is the Right.
+};
+
+
+Servo S_Right;						// Create the Servo objects
+Servo S_Left; 
+
+void setup() 
+{
+  S_Right.attach(servoR);			// inform the system what pin the Servo's are attached to 
+  S_Left.attach (servoL);			// NewPing does this for me.
+  
+}
+
+void loop() 
+{
+	double L_distance= UltraSonic[0].ping_cm();		// ping the ultrasoince and store the distance in cm in the Variable L_distance
+	double R_distance= UltraSonic[1].ping_cm(); 	// repeat for right sensor
+	
+	L_distance=Speed_Conversion(L_distance,MAX_DISTANCE); 		// convert the distances to speeds
+	R_distance=Speed_Conversion(R_distance,MAX_DISTANCE);
+	
+	if (Crossed)									// if Crossed is not 0 then the code below is done
+	{
+		double temp=R_distance;						// this code swaps the values stored in L_distance and R_distance
+		R_distance=L_distance;
+		L_distance=temp;
+	}
+	if(Excite)										// same as above, if Excite is not 0 then this code is excutued
+	{
+		S_Left.write(1500+(L_distance*10));
+		S_Right.write(1500-(R_distance*10);
+	}
+	else											// otherwise this code is
+	{	
+		double maxspeed= (2000*MAX_SPEED)/100; 			// the maximum available speed. 
+		S_Left.write(1500+(maxspeed-L_distance));			// slow the speed of the servo by L_distance
+		S_Right.write(1500-(maxspeed-R_distance));		
+	}
+	
+	// speed conversion function.#include <NewPing.h>
+#include<Servo.h>
+
+#define trigR 4				// the pin values the senors and motors are connedted to.
+#define trigL 13
+
+#define echoR 2
+#define echoL 12
+
+#define servoR 8
+#define servoL 7
+
+int Crossed = 1; 					// if 0 the values are not crossed.
+int Excite = 0; 					// if 0 on close objects will excite.
+int MAX_DISTANCE= 20;				// The Maximum distance the Ultra sonics will detect in cm
+int MAX_SPEED= 100;					// Precentage of the maximum speed capable
+
+NewPing UltraSonic[2]=               // create the Ping objects
+{
+	NewPing(trigL,echoL,MAX_DISTANCE), // UltraSonic[0] is left
+	NewPing(trigR,echoR,MAX_DISTANCE)	// UltraSonic [1] is the Right.
+};
+
+
+Servo S_Right;						// Create the Servo objects
+Servo S_Left; 
+
+void setup() 
+{
+  S_Right.attach(servoR);			// inform the system what pin the Servo's are attached to 
+  S_Left.attach (servoL);			// NewPing does this for me.
+  
+}
+
+void loop() 
+{
+	double L_distance= UltraSonic[0].ping_cm();		// ping the ultrasoince and store the distance in cm in the Variable L_distance
+	double R_distance= UltraSonic[1].ping_cm(); 	// repeat for right sensor
+	
+	L_distance=Speed_Conversion(L_distance,MAX_DISTANCE); 		// convert the distances to speeds
+	R_distance=Speed_Conversion(R_distance,MAX_DISTANCE);
+	
+	if (Crossed)									// if Crossed is not 0 then the code below is done
+	{
+		double temp=R_distance;						// this code swaps the values stored in L_distance and R_distance
+		R_distance=L_distance;
+		L_distance=temp;
+	}
+	if(Excite)										// same as above, if Excite is not 0 then this code is excutued
+	{
+		S_Left .writemicroseconds(1500+(L_distance*10));
+		S_Right.writemicroseconds(1500-(R_distance*10);
+	}
+	else											// otherwise this code is
+	{	
+		double maxspeed= (2000*MAX_SPEED)/100; 			// the maximum available speed. 
+		S_Left.writemicroseconds(1500+(maxspeed-L_distance));			// slow the speed of the servo by L_distance
+		S_Right.writemicroseconds(1500-(maxspeed-R_distance));		
+	}
+	
+	// speed conversion function.
+}
+	double Speed_Conversion(double distance,int MAX_DISTANCE)
+	{
+		distance =(distance/MAX_DISTANCE)*100; // converted into a precentages
+		distance= 1500+((3500*distance)/100); // converts to a precenage of 90 then shifts into the range of 90 to 180
+		
+		// The reason it shifts so that the smallest value possibale is 90 is because the function write takse a value between 0 and 180 where 0 is one direction max speed, and 180 is max speed in the other direction.
+		return distance;
+	}
+	
+
+}
+	double Speed_Conversion(double distance,int MAX_DISTANCE)
+	{
+		distance =(distance/MAX_DISTANCE)*100; // converted into a precentages
+		distance= 1500+((3500*distance)/100); // converts to a precenage of 90 then shifts into the range of 90 to 180
+		
+		// The reason it shifts so that the smallest value possibale is 90 is because the function write takse a value between 0 and 180 where 0 is one direction max speed, and 180 is max speed in the other direction.
+		return distance;
+	}
+	
