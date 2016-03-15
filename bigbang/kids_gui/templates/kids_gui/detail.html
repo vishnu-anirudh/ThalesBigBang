@@ -30,29 +30,31 @@
     margin-left:50px;
 }
 </style>
-<form class="form-horizontal" role="form" method="post" action="">
+<form class="form-horizontal" role="form" method="post" action="" style="width:100%">
  			{% csrf_token %}
 	
 	<br>
 	<br>
 	
-    <div class="form-group" style="padding:10px;">
-        <label for="name" style="font-size:200%;color:#000066display:inline;">Name: </label>
+    <div class="form-group" style="padding:10px;margin-left: 25%;">
+        <label for="name" style="font-size:200%;color:#000050;display:inline;">Name: </label>
         
-            <input type="text" class="form-control" id="name" name="your_name" placeholder="Name" value="" style="display: block; width: 400px; height: 45px; padding: 6px 12px; font-size: 25px; line-height: 1.42857143; color: #555; background-color: #fff; background-image: none; border: 1px solid #ccc; border-radius: 4px; display: inline;"/>
+            <input type="text" class="form-control" id="name" name="your_name" placeholder="Name" value="" style="display: block; width: 400px; height: 45px; padding: 6px 12px; font-size: 25px; line-height: 1.42857143; color: #000050; background-color: #fff; background-image: none; border: 1px solid #000050; border-radius: 4px; display: inline;"/>
        
     </div>
 
 	<br>
 	<br>
     
-    <code style="font-weight:bold; font-size:260%; font-family:monospace; color:#006600; background-color:#FFFFFF">// ### YOUR CODE STARTS HERE ### //</code><br>
+    <div style="font-weight:bold; font-size:260%; font-family:monospace; color:#006600; background-color:#FFFFFF;text-align: center;">// ### YOUR CODE STARTS HERE ### //</div>
+	<br>
     
 	<br>
 	<br>
 
-    <div class="form-group" style="padding:0px 40px">
-        <label for="max_dist" ><code style="font-size:200%;color:#660000;font-weight:bold;font-family:monospace;background-color:#FFFFFF; display: inline;" >Maximum Distance</code>
+    <code style="margin-left: 25%;font-size:150%;color:#006600;font-weight:bold;font-family:monospace;background-color:#FFFFFF; display: inline;" >// Choose how far your robot can see.</code>
+	<div style="padding:1% 0%; margin-left: 25%;width: 50%">
+		<label for="max_dist" ><code style="font-size:200%;color:#e60000;font-weight:bold;font-family:monospace;background-color:#FFFFFF; display: inline;" >Maximum Distance</code>
 		<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#FFFFFF; display: inline;"> =</code></label> 
                
 		<select id="max_dist" name="max_dist" style="display: block; width: 90px; height: 45px; padding: 6px 12px; font-weight: bold; font-size: 200%; font-family:monospace; line-height: 1.42857143; color: #000066; background-color: #fff; background-image: none; border: 1px solid #ccc; border-radius: 4px; display: inline;">
@@ -71,19 +73,18 @@
 
 	<br>
 	<br>
-
-    <div class="code_comment">
-		<code style="font-size:150%;color:#006600">//Should LEFT_SENSOR be ON or OFF</code>    
-    </div>
-	
-	<br>
-	<br>
-	
-	<div style="background-color:#b3e6ff;padding:20px 40px;width:790px;">
+    	
+	<div style="background-color:#b3e6ff;padding:2% 2%;margin-left: 23%; width: 56%">
 		
-		<div class="form-group" >
+		<code style="font-size:150%;color:#006600;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;" >// Choose if the LEFT_SENSOR controls the wheel when it sees<br></code>
+		<code style="font-size:150%;color:#006600;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;" >// something (ON) or when it sees nothing (OFF).<br></code>
+    	
+		<br>
+		<br>
+		
+		<div>
 			<label for="arg_1"><code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;">if  </code>
-			<code style="font-size:200%;color:#660000;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;">LEFT_SENSOR</code>
+			<code style="font-size:200%;color:#e60000;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;">LEFT_SENSOR</code>
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;"> =</code><br></label> 
 			
         
@@ -97,20 +98,20 @@
 		
 		</div>
 
-		<div class="form-group">
+		<div>
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff;">{</code>
 		</div>
-	
-		<div style="background-color:#66ccff;padding:20px;margin:0px 50px;">
+		
+		<div style="background-color:#66ccff;padding:2%;margin-left:5%; width: 90%;">
 	
 			<div>
-				<code style="font-size:150%;color:#006600;background-color:#66ccff;">//Should LEFT_WHEEL move FORWARD or BACKWARD</code>    
-			</div>
+				<code style="font-size:150%;color:#006600;font-weight:bold;font-family:monospace;background-color:#66ccff; display: inline;" >//Should the LEFT_WHEEL move FORWARD or BACKWARD?</code>    
+			</div>	
 			
 			<br>
 
 			<div>
-				<code style="font-size:200%; color:#660000; font-weight:bold; font-family:monospace; background-color:#66ccff; display:inline;">LEFT_WHEEL</code>
+				<code style="font-size:200%; color:#e60000; font-weight:bold; font-family:monospace; background-color:#66ccff; display:inline;">LEFT_WHEEL</code>
 				<code style="font-size:200%; color:#000066; font-weight:bold; font-family:monospace; background-color:#66ccff; display:inline;"> =</code>
 				<select name="left_wheel_1" style="display:block; width:185px; height:45px; padding:6px 12px; font-weight:bold; font-size:200%; font-family:monospace; line-height:1.42857143; color:#000066; background-color:#fff; background-image:none; border:1px solid #ccc; border-radius:4px; display:inline;">
 					<option>FORWARD</option>
@@ -120,7 +121,7 @@
 
 		</div>	
 			
-		<div class="form-group">
+		<div>
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff;">}</code>
 			<br>
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;">else  </code>
@@ -128,26 +129,26 @@
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff;">{</code>
 		</div>
     
-		<div style="background-color:#66ccff;padding:20px;margin:0px 50px;">
+		<div style="background-color:#66ccff;padding:2%;margin-left:5%; width: 90%;">
 	
 			<div>
-				<code style="font-size:150%;color:#006600;background-color:#66ccff;">//Should LEFT_WHEEL move FORWARD or BACKWARD</code>    
-			</div>
+				<code style="font-size:150%;color:#006600;font-weight:bold;font-family:monospace;background-color:#66ccff; display: inline;" >//Should the LEFT_WHEEL move FORWARD or BACKWARD?</code>    
+			</div>	
 			
 			<br>
 
 			<div>
-				<code style="font-size:200%;color:#660000;font-weight:bold;font-family:monospace; background-color:#66ccff; display: inline;">LEFT_WHEEL</code>
-				<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace; background-color:#66ccff; display: inline;"> =</code> 
-				<select class="form-control2" name="left_wheel_1"style="display: block; width: 185px; height: 45px; padding: 6px 12px; font-weight: bold; font-size: 200%; font-family:monospace; line-height: 1.42857143; color: #000066; background-color: #fff; background-image: none; border: 1px solid #ccc; border-radius: 4px; display: inline;">
+				<code style="font-size:200%; color:#e60000; font-weight:bold; font-family:monospace; background-color:#66ccff; display:inline;">LEFT_WHEEL</code>
+				<code style="font-size:200%; color:#000066; font-weight:bold; font-family:monospace; background-color:#66ccff; display:inline;"> =</code>
+				<select name="left_wheel_1" style="display:block; width:185px; height:45px; padding:6px 12px; font-weight:bold; font-size:200%; font-family:monospace; line-height:1.42857143; color:#000066; background-color:#fff; background-image:none; border:1px solid #ccc; border-radius:4px; display:inline;">
 					<option>FORWARD</option>
 					<option>BACKWARD</option>
 				</select>
 			</div>
 
-		</div>	
+		</div>		
 			
-		<div class="form-group">
+		<div>
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff;">}</code>
 		</div>
 
@@ -155,21 +156,19 @@
 	
 	<br>
 	<br>
+	<br>
 		
-	<div class="code_comment">
-		<code style="font-size:150%;color:#006600">//Should RIGHT_SENSOR be ON or OFF</code>    
-	</div>
+	<div style="background-color:#b3e6ff;padding:2% 2%;margin-left: 23%; width: 56%">
 		
-	
-	
+		<code style="font-size:150%;color:#006600;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;" >// Choose if the RIGHT_SENSOR controls the wheel when it sees <br></code>
+		<code style="font-size:150%;color:#006600;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;" >// something (ON) or when it sees nothing (OFF).<br></code>
+    	
 		<br>
 		<br>
-
-	<div style="background-color:#b3e6ff;padding:20px 40px;width:790px;">
 		
-		<div class="form-group" >
+		<div>
 			<label for="arg_1"><code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;">if  </code>
-			<code style="font-size:200%;color:#660000;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;">RIGHT_SENSOR</code>
+			<code style="font-size:200%;color:#e60000;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;">RIGHT_SENSOR</code>
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;"> =</code><br></label> 
 			
         
@@ -183,20 +182,20 @@
 		
 		</div>
 
-		<div class="form-group">
+		<div>
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff;">{</code>
 		</div>
-	
-		<div style="background-color:#66ccff;padding:20px;margin:0px 50px;">
+		
+		<div style="background-color:#66ccff;padding:2%;margin-left:5%; width: 90%;">
 	
 			<div>
-				<code style="font-size:150%;color:#006600;background-color:#66ccff;">//Should RIGHT_WHEEL move FORWARD or BACKWARD</code>    
-			</div>
+				<code style="font-size:150%;color:#006600;font-weight:bold;font-family:monospace;background-color:#66ccff; display: inline;" >//Should the RIGHT_WHEEL move FORWARD or BACKWARD?</code>    
+			</div>	
 			
 			<br>
 
 			<div>
-				<code style="font-size:200%; color:#660000; font-weight:bold; font-family:monospace; background-color:#66ccff; display:inline;">RIGHT_WHEEL</code>
+				<code style="font-size:200%; color:#e60000; font-weight:bold; font-family:monospace; background-color:#66ccff; display:inline;">RIGHT_WHEEL</code>
 				<code style="font-size:200%; color:#000066; font-weight:bold; font-family:monospace; background-color:#66ccff; display:inline;"> =</code>
 				<select name="left_wheel_1" style="display:block; width:185px; height:45px; padding:6px 12px; font-weight:bold; font-size:200%; font-family:monospace; line-height:1.42857143; color:#000066; background-color:#fff; background-image:none; border:1px solid #ccc; border-radius:4px; display:inline;">
 					<option>FORWARD</option>
@@ -206,7 +205,7 @@
 
 		</div>	
 			
-		<div class="form-group">
+		<div>
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff;">}</code>
 			<br>
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff; display: inline;">else  </code>
@@ -214,38 +213,38 @@
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff;">{</code>
 		</div>
     
-		<div style="background-color:#66ccff;padding:20px;margin:0px 50px;">
+		<div style="background-color:#66ccff;padding:2%;margin-left:5%; width: 90%;">
 	
 			<div>
-				<code style="font-size:150%;color:#006600;background-color:#66ccff;">//Should RIGHT_WHEEL move FORWARD or BACKWARD</code>    
-			</div>
+				<code style="font-size:150%;color:#006600;font-weight:bold;font-family:monospace;background-color:#66ccff; display: inline;" >//Should the RIGHT_WHEEL move FORWARD or BACKWARD?</code>    
+			</div>	
 			
 			<br>
 
 			<div>
-				<code style="font-size:200%;color:#660000;font-weight:bold;font-family:monospace; background-color:#66ccff; display: inline;">RIGHT_WHEEL</code>
-				<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace; background-color:#66ccff; display: inline;"> =</code> 
-				<select class="form-control2" name="left_wheel_1"style="display: block; width: 185px; height: 45px; padding: 6px 12px; font-weight: bold; font-size: 200%; font-family:monospace; line-height: 1.42857143; color: #000066; background-color: #fff; background-image: none; border: 1px solid #ccc; border-radius: 4px; display: inline;">
+				<code style="font-size:200%; color:#e60000; font-weight:bold; font-family:monospace; background-color:#66ccff; display:inline;">RIGHT_WHEEL</code>
+				<code style="font-size:200%; color:#000066; font-weight:bold; font-family:monospace; background-color:#66ccff; display:inline;"> =</code>
+				<select name="left_wheel_1" style="display:block; width:185px; height:45px; padding:6px 12px; font-weight:bold; font-size:200%; font-family:monospace; line-height:1.42857143; color:#000066; background-color:#fff; background-image:none; border:1px solid #ccc; border-radius:4px; display:inline;">
 					<option>FORWARD</option>
 					<option>BACKWARD</option>
 				</select>
 			</div>
 
-		</div>	
+		</div>		
 			
-		<div class="form-group">
+		<div>
 			<code style="font-size:200%;color:#000066;font-weight:bold;font-family:monospace;background-color:#b3e6ff;">}</code>
 		</div>
 
-	</div>
+	</div>	
 	
 	<br>
 	<br>
 	<br>
   
-    <div class="form-group">
+    <div style="text-align: center;">
         <div style="padding:0px 325px;">
-            <input id="submit" name="submit" type="submit" value="Compile Code" class="btn btn-primary">
+            <input id="submit" name="submit" type="submit" value="Compile your code!" style="border-radius: 10px; border: 5px solid #b3e6ff; padding:3px 10px;font-size:200%;color:#FFFFFF;font-weight:bold;font-family:monospace;background-color:#000050;">
         </div>
     </div>
     <div class="form-group">

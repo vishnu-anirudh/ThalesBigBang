@@ -1,0 +1,19 @@
+
+{% extends 'kids_gui/base.html' %}
+
+{% block content %}
+
+<!-- Single button -->
+<style>
+.congrats {
+    position: absolute;
+    top: 40; bottom:10; left: 0; right:0;
+    margin: auto;
+}
+</style>
+{% load staticfiles %}
+
+<img class="congrats" height="500" width="550" src="{% static "kids_gui/img/robo1.png " %}" alt="Congratulations" />
+
+
+{% endblock %}
