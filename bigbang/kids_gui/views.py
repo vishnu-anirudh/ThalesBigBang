@@ -65,9 +65,17 @@ def detail(request):
             app=FileClone()
             app.main(your_name, max_dist, left_sensor, left_wheel_1, left_wheel_2, right_sensor, right_wheel_1, right_wheel_2)
 
-            return HttpResponseRedirect('/home/')
+            return HttpResponseRedirect('/home/congratulations/')
 	
     return render(request, 'kids_gui/detail.html', {'form': form_class,})
+
+def congratulations(request):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    template = loader.get_template('kids_gui/congratulations.html')
+    context = {
+        'latest_question_list': latest_question_list,
+    }
+    return HttpResponse(template.render(context, request))
 
 """
 contact_name = request.POST.get(

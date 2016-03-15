@@ -8,4 +8,6 @@ urlpatterns = [
 
     # ex: /home/5/
     url(r'^2/$', views.detail, name='detail'),
+	url(r'^congratulations/$', views.congratulations, name='congratulations'),
+
 ]
