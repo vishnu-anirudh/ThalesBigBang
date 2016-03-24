@@ -49,7 +49,7 @@ void loop()
   {
     S_Right.detach();                           // if too close stop the servos by detaching them 
     S_Left.detach ();     
-    delay(250);                                 // wait 1/4 of a second 
+    delay(100);                                 // wait 1/4 of a second 
   }
   else
   {
@@ -76,6 +76,6 @@ void loop()
     {
       S_Right.write(DIRECTION_4);
     }
-    delay(500);                                 // do this ^ for 1/2 a second 
+    delay(200);                                 // do this ^ for 1/2 a second 
   }
 }

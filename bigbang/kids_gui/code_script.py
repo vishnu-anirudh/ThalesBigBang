@@ -45,19 +45,19 @@ class FileClone:
 		#
 		if(inp_lwheel1)=="FORWARD":
 			#inp_lwheel1=FORWARD and inp_lsensor=(ON)
-			lwheel_sensor_on=800
+			lwheel_sensor_on=200
 		else:
 			#inp_lwheel1=BACKWARD and inp_lsensor=(ON)
-			lwheel_sensor_on=200
+			lwheel_sensor_on=800
 
 		#Left wheel (left sensor if OFF)
 		#
 		if(inp_lwheel2)=="FORWARD":
 			#inp_lwheel2=FORWARD and inp_lsensor=(OFF)
-			lwheel_sensor_off=800
+			lwheel_sensor_off=200
 		else:
 			#inp_lwheel2=BACKWARD and inp_lsensor=(OFF)
-			lwheel_sensor_off=200
+			lwheel_sensor_off=800
 
 
 		#Right sensor
@@ -88,10 +88,10 @@ class FileClone:
 
 		#Input from GUI
 		#
-		inp_1=lwheel_sensor_on
-		inp_2=lwheel_sensor_off
-		inp_3=rwheel_sensor_on
-		inp_4=rwheel_sensor_off
+		inp_2=lwheel_sensor_on
+		inp_1=lwheel_sensor_off
+		inp_4=rwheel_sensor_on
+		inp_3=rwheel_sensor_off
 		inp_5=max_dist
 
 
